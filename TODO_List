@@ -1,0 +1,9 @@
+1. Create Test-case "Can-Make-Final-Review"
+2. Create Test-case "Can-Set-Final-Score"
+3. Create Test-case "Registration"
+4. Create some property/conf file for extarnal way to configure the set of cases which we want to execute and the version against we want to execute it
+5. Add external way to retrieve test data - Ex: CSV or DB
+6. Create reports after test-run
+7. Create performance scenario to measure the state of the version
+8. Create an visual comparisment of the uploaded HTML document using casperJS or phantonJS
+9. Create test-scenario visualisations with plantUML
