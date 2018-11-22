@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="windows-1251" ?>
+<Rows>
+  <TC>
+    <number>4</number>
+    <title>Can_Upload_A_Document</title>
+  </TC>
+  <input>
+    <theme>33 - Framework7 - разработка на уеб приложения за Android и iOS</theme>
+    <doc_path>C:\Temp\referat.zip</doc_path>
+    <comment>Тест</comment>
+  </input>
+</Rows>

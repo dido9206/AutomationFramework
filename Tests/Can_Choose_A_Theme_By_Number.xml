@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="windows-1251" ?>
+<Rows>
+  <TC>
+    <number>2</number>
+    <title>Can_Choose_A_Theme_By_Number</title>
+  </TC>
+  <input>
+    <theme_number>33</theme_number>
+    <theme>33 - Framework7 - разработка на уеб приложения за Android и iOS</theme>
+  </input>
+  <input>
+    <theme_number>38</theme_number>
+    <theme>38 - Spring (java)</theme>
+  </input>
+</Rows>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="windows-1251" ?>
+<Rows>
+  <TC>
+    <number>3</number>
+    <title>Can_Make_Review</title>
+  </TC>
+  <input>
+    <theme>69 - Прихващане на аудио и видео в HTML5</theme>
+    <review>Добре</review>
+    <element_type>h2</element_type>
+    <element_text>Въведение</element_text>
+  </input>
+</Rows>

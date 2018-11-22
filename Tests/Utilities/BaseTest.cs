@@ -11,7 +11,7 @@ namespace Tests
             Driver.Initialize();
 
             LoginPage.GoTo();
-            LoginPage.LoginAs("9999").WithPassword("9999").Login();
+            LoginPage.LoginAs("9999").WithPassword("1").Login();
         }
 
         [TestCleanup]
