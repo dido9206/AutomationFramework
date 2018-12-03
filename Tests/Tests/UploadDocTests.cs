@@ -30,7 +30,7 @@ namespace Tests
             UploadDocsPage.UploadDoc(doc_path).WithComment(comment).Upload();
 
             PickThemesPage.GoTo();
-            PickThemesPage.PickTheme("44 - Resemble.js: Анализ и сравнение на изображения посреством JavaScript и HTML").Pick();
+            PickThemesPage.PickTheme("").PickByNumber("44");
         }
 
         [TestMethod]
@@ -49,7 +49,7 @@ namespace Tests
             UploadDocsPage.ViewModeExit();
 
             PickThemesPage.GoTo();
-            PickThemesPage.PickTheme("44 - Resemble.js: Анализ и сравнение на изображения посреством JavaScript и HTML").Pick();
+            PickThemesPage.PickTheme("").PickByNumber("44");
         }
 
         [TestMethod]
@@ -66,7 +66,7 @@ namespace Tests
             Assert.IsTrue(UploadDocsPage.CheckLastVersionAvailability(), "The last version of your theme is not available in the Reviews Page.");
 
             PickThemesPage.GoTo();
-            PickThemesPage.PickTheme("44 - Resemble.js: Анализ и сравнение на изображения посреством JavaScript и HTML").Pick();
+            PickThemesPage.PickTheme("").PickByNumber("44");
         }
     }
 }
