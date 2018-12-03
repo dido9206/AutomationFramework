@@ -29,7 +29,7 @@ namespace Tests
             Assert.AreEqual(UploadDocsPage.Theme, "Избраната тема е "+ theme, "Theme did not match the picked theme!");
 
             PickThemesPage.GoTo();
-            PickThemesPage.PickTheme("").PickByNumber("44");
+            PickThemesPage.PickTheme("").PickByNumber("44"); 
         }
 
         [TestMethod]
