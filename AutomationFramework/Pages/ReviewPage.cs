@@ -32,6 +32,7 @@ namespace AutomationFramework
             throw new System.Exception("Theme "+ theme + " not found");
 
         }
+
         public static int PreviousReviewsCount
         {
             get { return lastCount; }
@@ -134,7 +135,21 @@ namespace AutomationFramework
         private string type;
         private string text;
 
+        public string GetMark(string theme)
+        {
+            var rowSize = Driver.Instance.FindElements(By.XPath("/html/body/div/div[1]/table/tbody/tr/td[1]")).Count();
+            for (int i = 1; i <= rowSize; i++)
+            {
+                var cellText = Driver.Instance.FindElement(By.XPath("/html/body/div/div[1]/table/tbody/tr[" + i + "]/td[1]")).Text;
+                if (cellText == theme)
+                {
+                    var mark = Driver.Instance.FindElement(By.XPath("/html/body/div/div[1]/table/tbody/tr[" + i + "]/td[6]"));
+                    return mark.Text;
+                }
+            }
+            throw new System.Exception("Theme " + theme + " not found");
 
+        }
         public ReviewCommand(string theme)
         {
             this.theme = theme;
@@ -190,6 +205,27 @@ namespace AutomationFramework
             }
         }
 
+        public void SaveFinal()
+        {
+            ReviewPage.ReviewModeActivate(theme);
+
+            var finalReviewButton = Driver.Instance.FindElement(By.XPath("//div[contains(text(), 'Оцени')]"));
+            finalReviewButton.Click();
+
+            Actions action = new Actions(Driver.Instance);
+
+            var commentField = Driver.Instance.FindElement(By.Id("__ht__finalcomment"));
+            action.MoveToElement(commentField).Click();
+            commentField.Clear();
+            commentField.SendKeys(review);
+
+            var saveButton = Driver.Instance.FindElement(By.LinkText("Изпрати"));
+            saveButton.Click();
+            Driver.Wait(TimeSpan.FromSeconds(2));
+
+            ReviewPage.ReviewModeExit();
+        }
+
         public void Check()
         {
             ReviewPage.ViewModeActivate(theme);
@@ -214,6 +250,24 @@ namespace AutomationFramework
             }
             ReviewPage.ReviewModeExit();
             throw new System.Exception("The element, containing the comment, cannot be found");
+        }
+
+        public void CheckFinal()
+        {
+            ReviewPage.ViewModeActivate(theme);
+
+            var finalReviewButton = Driver.Instance.FindElement(By.XPath("//div[contains(text(), 'Коментари')]"));
+            finalReviewButton.Click();
+
+            var commentFieldText = Driver.Instance.FindElement(By.XPath("/html/body/div[4]/div[1]/div")).Text;
+            //string firstline = str.Substring(0, str.IndexOf(Environment.NewLine));
+            commentFieldText = commentFieldText.Substring(commentFieldText.IndexOf(Environment.NewLine)+2);
+            if (commentFieldText != this.review)
+            {
+                ReviewPage.ReviewModeExit();
+                throw new System.Exception("The review is not correct or not saved. Expected: " + this.review + ", Got: " + commentFieldText);
+            }
+            ReviewPage.ReviewModeExit();
         }
 
         public void Delete()
@@ -241,6 +295,53 @@ namespace AutomationFramework
             {
                 throw new System.Exception("Unable to delete review. Previous: " + ReviewPage.PreviousReviewsCount + ", Current:" + ReviewPage.CurrentReviewsCount(theme));
             }
+        }
+
+        public void SetMark(string mark)
+        {
+            ReviewPage.ReviewModeActivate(theme);
+
+            var finalReviewButton = Driver.Instance.FindElement(By.XPath("//div[contains(text(), 'Оцени')]"));
+            finalReviewButton.Click();
+
+            Actions action = new Actions(Driver.Instance);
+
+            var commentField = Driver.Instance.FindElement(By.Id("__ht__finalcomment"));
+            action.MoveToElement(commentField).Click();
+            commentField.Clear();
+            commentField.SendKeys(review);
+
+            var markField = Driver.Instance.FindElement(By.Id("__ht__scoreslider"));
+            action.MoveToElement(markField).ClickAndHold().MoveByOffset((int.Parse(mark)-5)*10, 0).Release().Perform();
+
+            var saveButton = Driver.Instance.FindElement(By.LinkText("Изпрати"));
+            saveButton.Click();
+            Driver.Wait(TimeSpan.FromSeconds(2));
+
+            ReviewPage.ReviewModeExit();
+        }
+
+        public void CheckMark(string mark)
+        {
+            if (mark+".0000"!=GetMark(theme))
+            {
+                throw new System.Exception("The mark is not correct. Expected: " + mark + ".0000, Got: " + GetMark(theme));
+            }
+
+            ReviewPage.ViewModeActivate(theme);
+
+            var finalReviewButton = Driver.Instance.FindElement(By.XPath("//div[contains(text(), 'Коментари')]"));
+            finalReviewButton.Click();
+
+            var commentFieldText = Driver.Instance.FindElement(By.XPath("/html/body/div[4]/div[1]/div")).Text;
+            //string firstline = str.Substring(0, str.IndexOf(Environment.NewLine));
+            commentFieldText = commentFieldText.Substring(0,commentFieldText.IndexOf(Environment.NewLine));
+            if (commentFieldText != mark + " от 10 точки")
+            {
+                ReviewPage.ReviewModeExit();
+                throw new System.Exception("The mark is not correct. Expected: " + mark + " от 10 точки, Got: " + commentFieldText);
+            }
+            ReviewPage.ReviewModeExit();
         }
     }
 }

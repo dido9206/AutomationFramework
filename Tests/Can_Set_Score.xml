@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="windows-1251" ?>
+<Rows>
+  <TC>
+    <number>8</number>
+    <title>Can_Make_Final_Review</title>
+  </TC>
+  <input>
+    <theme>69 - Прихващане на аудио и видео в HTML5</theme>
+    <review>Добре</review>
+    <mark>8</mark>
+  </input>
+  <input>
+    <theme>69 - Прихващане на аудио и видео в HTML5</theme>
+    <review>Зле</review>
+    <mark>2</mark>
+  </input>
+  <input>
+    <theme>69 - Прихващане на аудио и видео в HTML5</theme>
+    <review>Средно</review>
+    <mark>5</mark>
+  </input>
+</Rows>

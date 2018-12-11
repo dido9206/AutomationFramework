@@ -39,17 +39,37 @@ namespace Tests
         }
 
         [TestMethod]
+        [DataSource("Microsoft.VisualStudio.TestTools.DataSource.XML",
+        "|DataDirectory|\\Can_Make_Final_Review.xml", "input",
+         DataAccessMethod.Sequential)]
         public void Can_Make_Final_Review()
         {
-            
+            string theme = TestContext.DataRow["theme"].ToString();
+            string review = TestContext.DataRow["review"].ToString();
+            ReviewPage.GoTo();
+            Assert.IsTrue(ReviewPage.IsAt, "Wasn't at Review page");
+
+            ReviewPage.MakeReview(theme).Review(review).SaveFinal();
+
+            ReviewPage.MakeReview(theme).Review(review).CheckFinal();
 
         }
 
         [TestMethod]
+        [DataSource("Microsoft.VisualStudio.TestTools.DataSource.XML",
+        "|DataDirectory|\\Can_Set_Score.xml", "input",
+         DataAccessMethod.Sequential)]
         public void Can_Set_Score()
         {
+            string theme = TestContext.DataRow["theme"].ToString();
+            string review = TestContext.DataRow["review"].ToString();
+            string mark = TestContext.DataRow["mark"].ToString();
 
+            ReviewPage.GoTo();
+            Assert.IsTrue(ReviewPage.IsAt, "Wasn't at Review page");
 
+            ReviewPage.MakeReview(theme).Review(review).SetMark(mark);
+            ReviewPage.MakeReview(theme).Review(review).CheckMark(mark);
         }
     }
 }
