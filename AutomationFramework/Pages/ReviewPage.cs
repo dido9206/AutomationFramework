@@ -104,8 +104,10 @@ namespace AutomationFramework
 
         public static void ReviewModeExit()
         {
+            Actions action = new Actions(Driver.Instance);
             var exitButton = Driver.Instance.FindElement(By.XPath("//div[contains(text(), 'Назад')]"));
-            exitButton.Click();
+            action.MoveToElement(exitButton).Click().Release().Perform();
+            //exitButton.Click();
         }
 
         public static string GetUploadDate(string theme)
@@ -221,7 +223,7 @@ namespace AutomationFramework
 
             var saveButton = Driver.Instance.FindElement(By.LinkText("Изпрати"));
             saveButton.Click();
-            Driver.Wait(TimeSpan.FromSeconds(2));
+            Driver.Wait(TimeSpan.FromSeconds(3));
 
             ReviewPage.ReviewModeExit();
         }
@@ -254,12 +256,14 @@ namespace AutomationFramework
 
         public void CheckFinal()
         {
+            Actions action = new Actions(Driver.Instance);
             ReviewPage.ViewModeActivate(theme);
 
             var finalReviewButton = Driver.Instance.FindElement(By.XPath("//div[contains(text(), 'Коментари')]"));
-            finalReviewButton.Click();
+            action.MoveToElement(finalReviewButton).Click().Release().Perform();
+            //finalReviewButton.Click();
 
-            var commentFieldText = Driver.Instance.FindElement(By.XPath("/html/body/div[4]/div[1]/div")).Text;
+            var commentFieldText = Driver.Instance.FindElement(By.ClassName("__ht__blockquote")).Text;
             //string firstline = str.Substring(0, str.IndexOf(Environment.NewLine));
             commentFieldText = commentFieldText.Substring(commentFieldText.IndexOf(Environment.NewLine)+2);
             if (commentFieldText != this.review)
@@ -323,6 +327,7 @@ namespace AutomationFramework
 
         public void CheckMark(string mark)
         {
+            Actions action = new Actions(Driver.Instance);
             if (mark+".0000"!=GetMark(theme))
             {
                 throw new System.Exception("The mark is not correct. Expected: " + mark + ".0000, Got: " + GetMark(theme));
@@ -331,7 +336,8 @@ namespace AutomationFramework
             ReviewPage.ViewModeActivate(theme);
 
             var finalReviewButton = Driver.Instance.FindElement(By.XPath("//div[contains(text(), 'Коментари')]"));
-            finalReviewButton.Click();
+            action.MoveToElement(finalReviewButton).Click().Release().Perform();
+            //finalReviewButton.Click();
 
             var commentFieldText = Driver.Instance.FindElement(By.XPath("/html/body/div[4]/div[1]/div")).Text;
             //string firstline = str.Substring(0, str.IndexOf(Environment.NewLine));
@@ -342,6 +348,59 @@ namespace AutomationFramework
                 throw new System.Exception("The mark is not correct. Expected: " + mark + " от 10 точки, Got: " + commentFieldText);
             }
             ReviewPage.ReviewModeExit();
+        }
+
+        public void CheckAllFinal()
+        {
+            var map = new Dictionary<string, string>();
+            var rowSize = Driver.Instance.FindElements(By.XPath("/html/body/div/div[1]/table/tbody/tr/td[1]")).Count();
+            for (int i = 75; i <= rowSize; i++)
+            {
+                var cellText = Driver.Instance.FindElement(By.XPath("/html/body/div/div[1]/table/tbody/tr[" + i + "]/td[1]")).Text;
+                try
+                {
+                    ReviewPage.MakeReview(cellText).Review(this.review).SaveFinal();
+                }
+                catch
+                {
+                    try
+                    {
+                        var isAt = ReviewPage.IsAt;
+                    }
+                    catch
+                    {
+                        Driver.Instance.Navigate().Back();
+                    }
+                    map.Add(cellText+" Make", "Unable to make final review");
+                }
+                try
+                {
+                    ReviewPage.MakeReview(cellText).Review(this.review).CheckFinal();
+                }
+                catch
+                {
+                    try
+                    {
+                        var isAt = ReviewPage.IsAt;
+                    }
+                    catch
+                    {
+                        Driver.Instance.Navigate().Back();
+                    }
+                    map.Add(cellText+" Check", "Unable to check final review");
+                }
+            }
+            if (map.Count > 0)
+            {
+                string Exception = "";
+                foreach (var pair in map)
+                {
+                    string key = pair.Key;
+                    string value = pair.Value;
+                    Exception = Exception + "Theme " + key + " cannot be reviewed. Reason: " + value + "<br/";
+                }
+                throw new System.Exception(Exception);
+            }
         }
     }
 }

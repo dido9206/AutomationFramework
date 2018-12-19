@@ -39,6 +39,15 @@ namespace Tests
         }
 
         [TestMethod]
+        public void Make_All_Reviews()
+        {
+            ReviewPage.GoTo();
+            Assert.IsTrue(ReviewPage.IsAt, "Wasn't at Review page");
+
+            ReviewPage.MakeReview("").Review("True").CheckAllFinal();
+        }
+
+        [TestMethod]
         [DataSource("Microsoft.VisualStudio.TestTools.DataSource.XML",
         "|DataDirectory|\\Can_Make_Final_Review.xml", "input",
          DataAccessMethod.Sequential)]
