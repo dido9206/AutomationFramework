@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="windows-1251" ?>
+<Rows>
+  <TC>
+    <number>9</number>
+    <title>User_Can_Register</title>
+  </TC>
+  <input>
+    <fn>88</fn>
+    <userName>dido8</userName>
+    <password>8888</password>
+    <mail>dido8@fd.fd</mail>
+  </input>
+  <input>
+    <fn>999</fn>
+    <userName>dido9</userName>
+    <password>9999</password>
+    <mail>dido9@fd.fd</mail>
+  </input>
+</Rows>

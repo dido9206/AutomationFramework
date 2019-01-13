@@ -102,7 +102,7 @@ namespace AutomationFramework
 
         public UploadCommand(string filePath)
         {
-            this.filePath = filePath;
+            this.filePath = Driver.ZipAddress + filePath;
         }
 
         public UploadCommand WithComment(string comment)
@@ -111,7 +111,7 @@ namespace AutomationFramework
             return this;
         }
 
-        public void Upload()
+        public void Upload(string outputFile)
         {
             UploadDocsPage.StoreCount();
 
@@ -135,7 +135,12 @@ namespace AutomationFramework
             var actual = UploadDocsPage.CurrentUploadsCount();
             if (expected != actual)
             {
+                CSVWriter.Write(@outputFile, "failed," + filePath);
                 throw new System.Exception("File is not correctly uploaded. Expected number of revisions: " + expected + ", Got: " + actual);
+            }
+            else
+            {
+                CSVWriter.Write(@outputFile, "success," + filePath);
             }
 
         }

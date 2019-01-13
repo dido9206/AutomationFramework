@@ -354,7 +354,7 @@ namespace AutomationFramework
         {
             var map = new Dictionary<string, string>();
             var rowSize = Driver.Instance.FindElements(By.XPath("/html/body/div/div[1]/table/tbody/tr/td[1]")).Count();
-            for (int i = 1; i <= 12; i++)
+            for (int i = 1; i <= rowSize; i++)
             {
                 var cellText = Driver.Instance.FindElement(By.XPath("/html/body/div/div[1]/table/tbody/tr[" + i + "]/td[1]")).Text;
                 try

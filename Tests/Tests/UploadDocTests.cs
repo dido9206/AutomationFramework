@@ -6,14 +6,6 @@ namespace Tests
     [TestClass]
     public class UploadDocTests : BaseTest
     {
-        private TestContext testContext;
-        public TestContext TestContext
-        {
-
-            get { return testContext; }
-            set { testContext = value; }
-
-        }
         [TestMethod]
         [DataSource("Microsoft.VisualStudio.TestTools.DataSource.XML",
         "|DataDirectory|\\Can_Upload_A_Document.xml", "input",
@@ -27,7 +19,7 @@ namespace Tests
             PickThemesPage.GoTo();
             PickThemesPage.PickTheme(theme).Pick();
 
-            UploadDocsPage.UploadDoc(doc_path).WithComment(comment).Upload();
+            UploadDocsPage.UploadDoc(doc_path).WithComment(comment).Upload("");
 
             PickThemesPage.GoTo();
             PickThemesPage.PickTheme("").PickByNumber("44");

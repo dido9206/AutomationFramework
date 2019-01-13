@@ -14,6 +14,11 @@ namespace AutomationFramework
             get { return "http://loremipsum2.fmi.uni-sofia.bg/WEBTECH/www_9ed_referats_fake/"; }
         }
 
+        public static string ZipAddress
+        {
+            get { return "C:\\Temp\\"; }
+        }
+
         public static void Initialize()
         {
             Instance = new FirefoxDriver();

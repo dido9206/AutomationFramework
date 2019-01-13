@@ -49,10 +49,13 @@
     <Reference Include="System.Data" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Create New Version\NewVersionCreator.cs" />
+    <Compile Include="Smoke Tests\RegisterTests.cs" />
     <Compile Include="Smoke Tests\UITests.cs" />
     <Compile Include="Tests\UploadDocTests.cs" />
     <Compile Include="Tests\ReviewTests.cs" />
     <Compile Include="Tests\PickThemesTest.cs" />
+    <Compile Include="Utilities\SanityTest.cs" />
     <Compile Include="Utilities\BaseTest.cs" />
     <Compile Include="Smoke Tests\LoginTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -67,6 +70,14 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="config.xml">
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="User_Can_Register.xml">
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Can_Set_Score.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <SubType>Designer</SubType>

@@ -6,14 +6,6 @@ namespace Tests
     [TestClass]
     public class ReviewTests : BaseTest
     {
-        private TestContext testContext;
-        public TestContext TestContext
-        {
-
-            get { return testContext; }
-            set { testContext = value; }
-
-        }
         [TestMethod]
         [DataSource("Microsoft.VisualStudio.TestTools.DataSource.XML",
         "|DataDirectory|\\Can_Make_Review.xml", "input",

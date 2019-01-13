@@ -5,6 +5,15 @@ namespace Tests
 {
     public class BaseTest
     {
+        private TestContext testContext;
+        public TestContext TestContext
+        {
+
+            get { return testContext; }
+            set { testContext = value; }
+
+        }
+
         [TestInitialize]
         public void Init()
         {
@@ -17,7 +26,7 @@ namespace Tests
         [TestCleanup]
         public void Cleanup()
         {
-            //Driver.Close();
+           Driver.Close();
         }
     }
 }

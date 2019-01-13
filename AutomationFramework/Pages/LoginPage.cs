@@ -25,6 +25,14 @@ namespace AutomationFramework
             //wait.Until(d => d.SwitchTo().ActiveElement().GetAttribute("name") == "name");
         }
 
+        public static void GoTo(string url)
+        {
+            Driver.Instance.Navigate().GoToUrl(url + "index.php");
+            Driver.Wait(TimeSpan.FromSeconds(2));
+            //var wait = new WebDriverWait(Driver.Instance, TimeSpan.FromSeconds(5));
+            //wait.Until(d => d.SwitchTo().ActiveElement().GetAttribute("name") == "name");
+        }
+
         public static LoginCommand LoginAs(string userName)
         {
             return new LoginCommand(userName);

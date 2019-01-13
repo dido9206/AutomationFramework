@@ -6,14 +6,6 @@ namespace Tests
     [TestClass]
     public class PickThemesTest : BaseTest
     {
-        private TestContext testContext;
-        public TestContext TestContext
-        {
-
-            get { return testContext; }
-            set { testContext = value; }
-
-        }
         [TestMethod]
         [DataSource("Microsoft.VisualStudio.TestTools.DataSource.XML",
         "|DataDirectory|\\Can_Choose_A_Theme_By_Title.xml", "input",
