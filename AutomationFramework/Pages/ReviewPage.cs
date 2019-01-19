@@ -1,5 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
+using System.Drawing.Imaging;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -401,6 +404,22 @@ namespace AutomationFramework
                 }
                 throw new System.Exception(Exception);
             }
+        }
+
+        public void MakeScreenshot(string actual, string expected, string workingDir, string refPath)
+        {
+            ReviewPage.ViewModeActivate(theme);
+            Screenshot screenshot = ((ITakesScreenshot)Driver.Instance).GetScreenshot();
+            screenshot.SaveAsFile(@actual, ScreenshotImageFormat.Png);
+            Driver.Instance.Navigate().GoToUrl("file:///"+ refPath);
+            screenshot = ((ITakesScreenshot)Driver.Instance).GetScreenshot();
+            screenshot.SaveAsFile(@expected, ScreenshotImageFormat.Png);
+            Process process = new Process();
+            process.StartInfo.FileName = "cmd.exe";
+            process.StartInfo.WorkingDirectory = @workingDir;
+            process.StartInfo.Arguments = "/c magick compare " + actual + " " + expected
+                + " " + "result.png";
+            process.Start();
         }
     }
 }

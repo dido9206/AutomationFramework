@@ -24,5 +24,22 @@ namespace Tests
             Assert.IsTrue(LoginPage.IsAt, "Wrong LoginScreen label.");
 
         }
+
+        [TestMethod]
+        [DataSource("Microsoft.VisualStudio.TestTools.DataSource.XML",
+        "|DataDirectory|\\Visual_Compare_HTML.xml", "input",
+         DataAccessMethod.Sequential)]
+        public void Visual_Compare_HTML()
+        {
+            string theme = TestContext.DataRow["theme"].ToString();
+            string actual = TestContext.DataRow["actual"].ToString();
+            string expected = TestContext.DataRow["expected"].ToString();
+            string workingDir = TestContext.DataRow["workingDir"].ToString();
+            string refPath = TestContext.DataRow["refPath"].ToString();
+
+            ReviewPage.GoTo();
+            ReviewPage.MakeReview(theme)
+                .MakeScreenshot(actual, expected, workingDir, refPath);
+        }
     }
 }

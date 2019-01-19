@@ -26,7 +26,7 @@ namespace Tests
         [TestCleanup]
         public void Cleanup()
         {
-           Driver.Close();
+          // Driver.Close();
         }
     }
 }

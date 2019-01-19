@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="windows-1251" ?>
+<Rows>
+  <TC>
+    <number>10</number>
+    <title>Visual_Compare_HTML</title>
+  </TC>
+  <input>
+    <theme>61 - Прецизно аудио в Уеб</theme>
+    <actual>C:\Temp\actual.png</actual>
+    <expected>C:\Temp\expected.png</expected>
+    <workingDir>c:\Temp</workingDir>
+    <refPath>C://Temp//myRef//referat.html</refPath>
+  </input>
+</Rows>

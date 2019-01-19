@@ -1,58 +1,58 @@
 <?xml version="1.0" encoding="windows-1251" ?>
 <Rows>
-  <setup>
-    <title>Creator</title>
-    <hostname>http://loremipsum2.fmi.uni-sofia.bg/WEBTECH/www_9ed_referats_fake/</hostname>
-    <refPath>C:\\Temp\\</refPath>
-    <registrationOutputFile>C:\\Temp\\MyTestRegister.csv</registrationOutputFile>
-    <referatsOutputFile>C:\\Temp\\MyTestReferats.csv</referatsOutputFile>
-  </setup>
-  <input>
-    <fn>111</fn>
-    <userName>user111</userName>
-    <password>111</password>
-    <mail>user111@fmi.fmi</mail>
-    <theme>33 - Framework7 - разработка на уеб приложения за Android и iOS</theme>
-    <zipName>11111.zip</zipName>
-  </input>
-  <input>
-    <fn>222</fn>
-    <userName>user222</userName>
-    <password>222</password>
-    <mail>user222@fd.fd</mail>
-    <theme>55 - Shadow DOM 101</theme>
-    <zipName>22222.zip</zipName>
-  </input>
-  <input>
-    <fn>333</fn>
-    <userName>user333</userName>
-    <password>333</password>
-    <mail>user333@fd.fd</mail>
-    <theme>57 - Shadow DOM 301, Advanced Concepts &amp; DOM APIs</theme>
-    <zipName>33333.zip</zipName>
-  </input>
-  <input>
-    <fn>444</fn>
-    <userName>user444</userName>
-    <password>444</password>
-    <mail>user444@fd.fd</mail>
-    <theme>61 - Прецизно аудио в Уеб</theme>
-    <zipName>44444.zip</zipName>
-  </input>
-  <input>
-    <fn>555</fn>
-    <userName>user555</userName>
-    <password>555</password>
-    <mail>user555@fd.fd</mail>
-    <theme>91 - normalize.css</theme>
-    <zipName>55555.zip</zipName>
-  </input>
-  <input>
-    <fn>666</fn>
-    <userName>user666</userName>
-    <password>666</password>
-    <mail>user666@fd.fd</mail>
-    <theme>95 - JavaScript Lint</theme>
-    <zipName>66666.zip</zipName>
-  </input>
+  <pf_setup>
+    <pf_title>Creator</pf_title>
+    <pf_hostname>http://loremipsum2.fmi.uni-sofia.bg/WEBTECH/www_9ed_referats_fake/</pf_hostname>
+    <pf_refPath>C:\\Temp\\</pf_refPath>
+    <pf_registrationOutputFile>C:\\Temp\\MyTestRegister.csv</pf_registrationOutputFile>
+    <pf_referatsOutputFile>C:\\Temp\\MyTestReferats.csv</pf_referatsOutputFile>
+  </pf_setup>
+  <pf_input>
+    <pf_fn>111</pf_fn>
+    <pf_userName>user111</pf_userName>
+    <pf_password>111</pf_password>
+    <pf_mail>user111@fmi.fmi</pf_mail>
+    <pf_theme>33 - Framework7 - разработка на уеб приложения за Android и iOS</pf_theme>
+    <pf_zipName>11111.zip</pf_zipName>
+  </pf_input>
+  <pf_input>
+    <pf_fn>222</pf_fn>
+    <pf_userName>user222</pf_userName>
+    <pf_password>222</pf_password>
+    <pf_mail>user222@fd.fd</pf_mail>
+    <pf_theme>55 - Shadow DOM 101</pf_theme>
+    <pf_zipName>22222.zip</pf_zipName>
+  </pf_input>
+  <pf_input>
+    <pf_fn>333</pf_fn>
+    <pf_userName>user333</pf_userName>
+    <pf_password>333</pf_password>
+    <pf_mail>user333@fd.fd</pf_mail>
+    <pf_theme>57 - Shadow DOM 301, Advanced Concepts &amp; DOM APIs</pf_theme>
+    <pf_zipName>33333.zip</pf_zipName>
+  </pf_input>
+  <pf_input>
+    <pf_fn>444</pf_fn>
+    <pf_userName>user444</pf_userName>
+    <pf_password>444</pf_password>
+    <pf_mail>user444@fd.fd</pf_mail>
+    <pf_theme>61 - Прецизно аудио в Уеб</pf_theme>
+    <pf_zipName>44444.zip</pf_zipName>
+  </pf_input>
+  <pf_input>
+    <pf_fn>555</pf_fn>
+    <pf_userName>user555</pf_userName>
+    <pf_password>555</pf_password>
+    <pf_mail>user555@fd.fd</pf_mail>
+    <pf_theme>91 - normalize.css</pf_theme>
+    <pf_zipName>55555.zip</pf_zipName>
+  </pf_input>
+  <pf_input>
+    <pf_fn>666</pf_fn>
+    <pf_userName>user666</pf_userName>
+    <pf_password>666</pf_password>
+    <pf_mail>user666@fd.fd</pf_mail>
+    <pf_theme>95 - JavaScript Lint</pf_theme>
+    <pf_zipName>66666.zip</pf_zipName>
+  </pf_input>
 </Rows>
