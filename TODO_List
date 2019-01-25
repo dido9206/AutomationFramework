@@ -5,6 +5,7 @@
 [READY] 5. Add external way to retrieve test data - with XML files
 [READY] 6. Create reports after test-run
 [READY] 7. Create performance scenario to measure the state of the version
-8. Create an visual comparisment of the uploaded HTML document using casperJS or phantonJS
+[READY] 8. Create an visual comparisment of the uploaded HTML document using casperJS or phantonJS - done with ImageMagick
 9. Create test-scenario visualisations with plantUML
-10. Dockerise the execution with capability to run on chosen site version
+[CANCELED] 10. Dockerise the execution with capability to run on chosen site version
+[READY] 11. Make full import of old version data to new version - registrations, Themes, Referats + CSV Report
