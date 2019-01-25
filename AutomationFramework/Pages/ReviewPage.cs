@@ -409,6 +409,9 @@ namespace AutomationFramework
         public void MakeScreenshot(string actual, string expected, string workingDir, string refPath)
         {
             ReviewPage.ViewModeActivate(theme);
+            actual = workingDir + "\\" + actual;
+            expected = workingDir + "\\" + expected;
+            refPath = workingDir + "\\" + refPath;
             Screenshot screenshot = ((ITakesScreenshot)Driver.Instance).GetScreenshot();
             screenshot.SaveAsFile(@actual, ScreenshotImageFormat.Png);
             Driver.Instance.Navigate().GoToUrl("file:///"+ refPath);

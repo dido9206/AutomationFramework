@@ -6,9 +6,9 @@
   </TC>
   <input>
     <theme>61 - Прецизно аудио в Уеб</theme>
-    <actual>C:\Temp\actual.png</actual>
-    <expected>C:\Temp\expected.png</expected>
+    <actual>actual.png</actual>
+    <expected>expected.png</expected>
     <workingDir>c:\Temp</workingDir>
-    <refPath>C://Temp//myRef//referat.html</refPath>
+    <refPath>myRef//referat.html</refPath>
   </input>
 </Rows>
