@@ -12,10 +12,10 @@ namespace Tests
          DataAccessMethod.Sequential)]
         public void Setup()
         {
-            setUrl(TestContext.DataRow["hostname"].ToString());
-            setRefPath(TestContext.DataRow["refPath"].ToString());
-            setRegOutPath(TestContext.DataRow["registrationOutputFile"].ToString());
-            setRefOutPath(TestContext.DataRow["referatsOutputFile"].ToString());
+            setUrl(TestContext.DataRow["pf_hostname"].ToString());
+            setRefPath(TestContext.DataRow["pf_refPath"].ToString());
+            setRegOutPath(TestContext.DataRow["pf_registrationOutputFile"].ToString());
+            setRefOutPath(TestContext.DataRow["pf_referatsOutputFile"].ToString());
 
         }
 
@@ -25,10 +25,10 @@ namespace Tests
          DataAccessMethod.Sequential)]
         public void User_Registration()
         {
-            string fn = TestContext.DataRow["fn"].ToString();
-            string userName = TestContext.DataRow["userName"].ToString();
-            string password = TestContext.DataRow["password"].ToString();
-            string mail = TestContext.DataRow["mail"].ToString();
+            string fn = TestContext.DataRow["pf_fn"].ToString();
+            string userName = TestContext.DataRow["pf_userName"].ToString();
+            string password = TestContext.DataRow["pf_password"].ToString();
+            string mail = TestContext.DataRow["pf_mail"].ToString();
 
             LoginPage.GoTo(getUrl);
             RegisterPage.GoTo();
@@ -45,10 +45,10 @@ namespace Tests
          DataAccessMethod.Sequential)]
         public void Referats_Upload()
         {
-            string userName = TestContext.DataRow["userName"].ToString();
-            string password = TestContext.DataRow["password"].ToString();
-            string theme = TestContext.DataRow["theme"].ToString();
-            string zipName = TestContext.DataRow["zipName"].ToString();
+            string userName = TestContext.DataRow["pf_userName"].ToString();
+            string password = TestContext.DataRow["pf_password"].ToString();
+            string theme = TestContext.DataRow["pf_theme"].ToString();
+            string zipName = TestContext.DataRow["pf_zipName"].ToString();
 
             LoginPage.GoTo(getUrl);
             LoginPage.LoginAs(userName).WithPassword(password).Login();

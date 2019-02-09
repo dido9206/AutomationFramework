@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="windows-1251" ?>
+<Rows>
+  <TC>
+    <number>11</number>
+    <title>Runbatch</title>
+  </TC>
+  <input>
+    <workingDir>C:\Users\Dido\Desktop\TestRunner</workingDir>
+    <command>runTests.bat</command>
+  </input>
+</Rows>

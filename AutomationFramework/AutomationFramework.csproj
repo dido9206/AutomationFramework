@@ -53,6 +53,7 @@
   <ItemGroup>
     <Compile Include="Pages\RegisterPage.cs" />
     <Compile Include="Pages\ReviewPage.cs" />
+    <Compile Include="Pages\ShellExecuter.cs" />
     <Compile Include="Pages\UploadDocsPage.cs" />
     <Compile Include="Pages\PickThemesPage.cs" />
     <Compile Include="Pages\DashboardPage.cs" />

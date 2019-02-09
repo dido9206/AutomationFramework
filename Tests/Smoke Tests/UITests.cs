@@ -34,12 +34,13 @@ namespace Tests
             string theme = TestContext.DataRow["theme"].ToString();
             string actual = TestContext.DataRow["actual"].ToString();
             string expected = TestContext.DataRow["expected"].ToString();
+            string result = TestContext.DataRow["result"].ToString();
             string workingDir = TestContext.DataRow["workingDir"].ToString();
             string refPath = TestContext.DataRow["refPath"].ToString();
 
             ReviewPage.GoTo();
             ReviewPage.MakeReview(theme)
-                .MakeScreenshot(actual, expected, workingDir, refPath);
+                .MakeScreenshot(actual, expected, result, workingDir, refPath);
         }
     }
 }

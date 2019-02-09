@@ -406,11 +406,12 @@ namespace AutomationFramework
             }
         }
 
-        public void MakeScreenshot(string actual, string expected, string workingDir, string refPath)
+        public void MakeScreenshot(string actual, string expected, string result, string workingDir, string refPath)
         {
             ReviewPage.ViewModeActivate(theme);
             actual = workingDir + "\\" + actual;
             expected = workingDir + "\\" + expected;
+            result = workingDir + "\\" + result;
             refPath = workingDir + "\\" + refPath;
             Screenshot screenshot = ((ITakesScreenshot)Driver.Instance).GetScreenshot();
             screenshot.SaveAsFile(@actual, ScreenshotImageFormat.Png);
@@ -421,7 +422,7 @@ namespace AutomationFramework
             process.StartInfo.FileName = "cmd.exe";
             process.StartInfo.WorkingDirectory = @workingDir;
             process.StartInfo.Arguments = "/c magick compare " + actual + " " + expected
-                + " " + "result.png";
+                + " " + result;
             process.Start();
         }
     }

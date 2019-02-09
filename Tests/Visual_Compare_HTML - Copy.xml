@@ -8,6 +8,7 @@
     <theme>61 - Прецизно аудио в Уеб</theme>
     <actual>actual.png</actual>
     <expected>expected.png</expected>
+    <result>result.png</result>
     <workingDir>c:\Temp</workingDir>
     <refPath>myRef//referat.html</refPath>
   </input>
